@@ -47,4 +47,22 @@ public class PlayerMovement : MonoBehaviour
             
         }
     }
+
+    //Si colisiona con enemigo todo se detiene
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Enemigo") // Verifica si colisiona con otro objeto "Enemigo"
+        {
+            GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemigo");
+
+            foreach (GameObject enemy in enemies)
+            {
+                // Desactiva el GameObject del enemigo para detener su comportamiento
+                enemy.SetActive(false);
+            }
+
+            this.enabled = false; //Desactiva parcialmente el script, haciendo que caiga hacia el vacio
+
+        }
+    }
 }
