@@ -44,7 +44,7 @@ public class PlayerMovement : MonoBehaviour
                 gameover.SetActive(true);
                 Application.Quit();
             }
-            
+
         }
     }
 }
