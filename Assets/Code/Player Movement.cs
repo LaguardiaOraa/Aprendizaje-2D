@@ -6,10 +6,11 @@ using UnityEngine.SceneManagement;
 public class PlayerMovement : MonoBehaviour
 {
     public GameObject usuario;
+    public GameObject gameover;
     // Start is called before the first frame update
     void Start()
     {
-        
+        gameover.SetActive(false);
     }
 
     // Update is called once per frame
@@ -34,11 +35,16 @@ public class PlayerMovement : MonoBehaviour
     {
         if (collision.gameObject.tag == "Enemigo") // Verifica si colisiona con otro objeto "Enemigo"
         {
+            GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemigo");
             //Falta el Game Over
-        }
-        else
-        {
-            
+            foreach (GameObject enemy in enemies)
+            {
+                // Desactiva el GameObject del enemigo para detener su comportamiento
+                enemy.SetActive(false);
+                gameover.SetActive(true);
+                Application.Quit();
+            }
+
         }
     }
 }
