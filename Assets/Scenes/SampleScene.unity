@@ -806,6 +806,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   usuario: {fileID: 1217273826}
+  gameover: {fileID: 768158016}
 --- !u!70 &1217273830
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
